@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pap/widgets/background.dart';
 import 'package:pap/widgets/logo.dart';
+import 'package:pap/utilities/time_text.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,34 +34,30 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const Background(),
         const LogoIPE(),
-        Positioned(
-            top: 230,
-            left: 700,
-            child: Column(
-              // ignore: prefer_const_literals_to_create_immutables
-              children: [
-                const Text(
-                  "Bom dia!",
-                  style: TextStyle(
-                    color: Colors.white,
-                    decoration: TextDecoration.none,
-                    fontSize: 60,
-                    fontWeight: FontWeight.bold,
+        const Background(),
+        DefaultTextStyle(
+          style: const TextStyle(
+            color: Colors.white,
+            decoration: TextDecoration.none,
+          ),
+          child: Positioned(
+              top: 230,
+              left: 700,
+              child: Column(
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  const TimeText(),
+                  const Text(
+                    "Passe o cartão para continuar",
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.normal,
+                    ),
                   ),
-                ),
-                const Text(
-                  "Passe o cartão para continuar",
-                  style: TextStyle(
-                    color: Colors.white,
-                    decoration: TextDecoration.none,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ))
+                ],
+              )),
+        )
       ],
     );
   }
