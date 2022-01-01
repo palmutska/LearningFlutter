@@ -26,4 +26,10 @@ flutter:
     - assets/
     - assets/images/ipeLogo.png
     - assets/images/rfidScanner.png
+    - assets/images/logout.png
+    - assets/images/militar.png
+    - assets/images/professor.png
+    - assets/images/funcionario.png
+    - assets/images/aluno.png
+    
 

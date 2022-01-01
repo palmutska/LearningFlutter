@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:pap/screens/account_page.dart';
 import 'package:pap/widgets/background.dart';
 import 'package:pap/widgets/logo.dart';
 import 'package:pap/utilities/time_text.dart';
@@ -20,11 +21,13 @@ class _HomePageState extends State<HomePage> {
     String value = "";
     ref.onValue.listen((event) {
       var snapshot = event.snapshot;
+      if (!mounted) return;
       setState(() {
         value = snapshot.value.toString();
       });
     });
     //* Firebase end
+
     if (value == "none") {
       return Stack(
         children: [
@@ -63,7 +66,7 @@ class _HomePageState extends State<HomePage> {
       );
     } else {
       //! Return proxima página!!
-      return Container();
+      return const AccountPage();
     }
   }
 }
